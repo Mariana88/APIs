@@ -10,6 +10,12 @@ let model = {
 			db.data = {};
 			jsonfile.writeFileSync(path.join(__dirname, '../db.json'), db)
 		},
+	createObject: function(newEntryArray){
+		for (i=0; i<newEntryArray.lenght; i++){
+			let new_entry = JSON.parse(newEntryArray[i]);
+			this.create(new_entry);
+		}
+	},
 	create: function(new_entry) {
 			let db = require('../db.json');
 			let data = db.data;
